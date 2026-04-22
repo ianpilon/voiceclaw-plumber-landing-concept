@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoiceClaw — The AI receptionist built for emergency plumbers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    html, body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .accent-orange { color: #ea580c; }
+    .bg-accent-orange { background-color: #ea580c; }
+    .bg-accent-orange:hover { background-color: #c2410c; }
+    .border-accent-orange { border-color: #ea580c; }
+    .gradient-hero-text { background: linear-gradient(135deg, #ea580c 0%, #f97316 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .ring-accent-orange { --tw-ring-color: #ea580c; }
+    .phone-pulse { animation: phonePulse 2s ease-in-out infinite; }
+    @keyframes phonePulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.85; }
+    }
+    .glow-orange { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.5); animation: glowPulse 2s ease-in-out infinite; }
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.5); }
+      50% { box-shadow: 0 0 0 15px rgba(234, 88, 12, 0); }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+  <!-- Sticky Nav -->
+  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-lg bg-slate-900 flex items-center justify-center">
+          <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17 2a3 3 0 013 3v4a5 5 0 01-4 4.9V22H8v-8.1A5 5 0 014 9V5a3 3 0 013-3h10zm-3 2H10v5a2 2 0 104 0V4z"/>
+          </svg>
+        </div>
+        <span class="font-bold text-lg tracking-tight">VoiceClaw</span>
+      </div>
+      <div class="flex items-center gap-6 text-sm">
+        <span class="hidden md:inline text-slate-600 font-medium tracking-wide uppercase text-xs">AI Front Desk</span>
+        <button class="hidden md:inline-flex items-center gap-1 px-4 py-2 rounded-lg border border-slate-300 font-medium hover:bg-slate-50 transition">
+          Try Live Demo
+        </button>
+        <button class="inline-flex items-center gap-1 px-4 py-2 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-800 transition">
+          Book a Call
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="max-w-6xl mx-auto px-6 pt-20 pb-16">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 mb-8">
+        <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+        <span class="text-xs font-semibold text-orange-700 uppercase tracking-wide">Built for emergency plumbers</span>
+      </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+        The AI receptionist built for
+        <span class="gradient-hero-text">emergency plumbers</span>
+      </h1>
+      <p class="text-lg text-slate-600 mb-10 leading-relaxed max-w-2xl">
+        You can't answer your phone from a crawl space at 11pm. VoiceClaw does. It captures the 2am burst-pipe calls you'd otherwise lose to Roto-Rooter, books the job, and keeps you in the lineup when homeowners ask their AI assistant for a plumber.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 mb-6">
+        <button class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-accent-orange text-white font-semibold text-base hover:shadow-lg transition-all">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Try the voice setup now →
+        </button>
+        <button class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-white border-2 border-slate-300 text-slate-900 font-semibold text-base hover:bg-slate-50 transition-all">
+          Book a 15-min intro call →
+        </button>
+      </div>
+      <p class="text-sm text-slate-500 mb-12">
+        <strong class="text-slate-700">2 minutes</strong> on a phone call — that's your whole setup. No credit card. No forms. No dashboard to learn.
+      </p>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="grid grid-cols-3 gap-6 md:gap-12 mt-8 pb-4 border-t border-slate-200 pt-8">
+      <div>
+        <div class="text-3xl md:text-4xl font-extrabold tracking-tight mb-1">24/7</div>
+        <div class="text-xs md:text-sm text-slate-500 font-medium">Emergency call coverage</div>
+      </div>
+      <div>
+        <div class="text-3xl md:text-4xl font-extrabold tracking-tight mb-1">$2K+</div>
+        <div class="text-xs md:text-sm text-slate-500 font-medium">Average water heater install you're missing</div>
+      </div>
+      <div>
+        <div class="text-3xl md:text-4xl font-extrabold tracking-tight mb-1">6 min</div>
+        <div class="text-xs md:text-sm text-slate-500 font-medium">Before homeowners call the next plumber on Google</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust / Works With Row -->
+  <section class="border-y border-slate-200 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-6 py-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm">
+      <div class="flex items-center gap-2 text-slate-600">
+        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        <span class="font-medium">Works with Ferguson</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-600">
+        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        <span class="font-medium">Winsupply &amp; Hajoca</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-600">
+        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        <span class="font-medium">Kohler · Moen · Rheem</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-600">
+        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        <span class="font-medium">ChatGPT · Claude · Perplexity discoverable</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-600">
+        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        <span class="font-medium">Licensed &amp; insured plumbers only</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section (Dark) -->
+  <section class="bg-slate-950 text-white py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-xs font-bold text-orange-400 uppercase tracking-[0.2em] mb-4">The Problem</div>
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6 max-w-3xl">
+        Your phone doesn't ring when your hands are in a crawl space.
+      </h2>
+      <p class="text-slate-400 text-lg mb-12 max-w-2xl">
+        Every missed call is a water heater install, a burst pipe, a boiler replacement — going to whoever picks up first. You'll blame the weather, or a slow economy, or bad luck.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <!-- Card 1 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2">The 2am call you miss</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Burst pipe at 11pm. Homeowner calls <span class="text-orange-400 font-semibold">3 plumbers in 6 minutes</span> and books whoever picks up first. Your phone rang while you were under a kitchen sink. The $2,000 water heater replacement goes to Roto-Rooter's answering service.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2">The lead-fee treadmill</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            You're paying Angi <span class="text-orange-400 font-semibold">$75 per shared lead</span> for homeowners who book the cheapest bid and ghost the rest. The handyman with a pressure washer and a Craigslist ad undercuts you on the easy jobs, and Benjamin Franklin's national ad budget eats the rest.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2">The AI lineup you're not in</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Homeowners are asking ChatGPT and Google AI to find emergency plumbers before they ever open Google. If your business still looks the same online as it did in 2019, <span class="text-orange-400 font-semibold">you're not on the shortlist</span>. You won't know why your call volume feels softer next winter.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why VoiceClaw Section -->
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">Why VoiceClaw</div>
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6 max-w-3xl">
+        Not another answering service. Built for plumbers who actually pick up wrenches.
+      </h2>
+      <p class="text-slate-600 text-lg mb-12 max-w-2xl">
+        Generic AI receptionists don't understand emergency plumbing. Answering services cost $500+/month and transfer you anyway. Here's how we compare.
+      </p>
+
+      <!-- Comparison Table -->
+      <div class="overflow-x-auto rounded-xl border border-slate-200">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-slate-50">
+              <th class="text-left py-4 px-6 font-semibold text-slate-600"></th>
+              <th class="py-4 px-6 bg-orange-50">
+                <div class="text-xs font-bold text-orange-600 uppercase tracking-wide mb-1">Recommended</div>
+                <div class="font-bold text-slate-900">VoiceClaw</div>
+              </th>
+              <th class="py-4 px-6 font-semibold text-slate-600">Ruby Receptionist</th>
+              <th class="py-4 px-6 font-semibold text-slate-600">Rosie / Goodcall</th>
+              <th class="py-4 px-6 font-semibold text-slate-600">Angi Pro Leads</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr>
+              <td class="py-4 px-6 font-medium text-slate-700">Monthly cost</td>
+              <td class="py-4 px-6 text-center bg-orange-50 font-semibold">$79 flat</td>
+              <td class="py-4 px-6 text-center text-slate-600">$235–$1,000+</td>
+              <td class="py-4 px-6 text-center text-slate-600">$90–$250</td>
+              <td class="py-4 px-6 text-center text-slate-600">$75 per lead</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-medium text-slate-700">Answers your 2am call</td>
+              <td class="py-4 px-6 text-center bg-orange-50">✓ Yes, instantly</td>
+              <td class="py-4 px-6 text-center text-slate-600">✓ Yes (extra cost)</td>
+              <td class="py-4 px-6 text-center text-slate-600">✓ Yes</td>
+              <td class="py-4 px-6 text-center text-slate-600">✗ Doesn't answer calls</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-medium text-slate-700">Speaks plumber</td>
+              <td class="py-4 px-6 text-center bg-orange-50">✓ Trade-specific from day 1</td>
+              <td class="py-4 px-6 text-center text-slate-600">Needs scripting</td>
+              <td class="py-4 px-6 text-center text-slate-600">Generic SMB</td>
+              <td class="py-4 px-6 text-center text-slate-600">N/A</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-medium text-slate-700">Books emergency jobs live</td>
+              <td class="py-4 px-6 text-center bg-orange-50">✓ Into your schedule</td>
+              <td class="py-4 px-6 text-center text-slate-600">Takes a message only</td>
+              <td class="py-4 px-6 text-center text-slate-600">Varies by integration</td>
+              <td class="py-4 px-6 text-center text-slate-600">✗ No booking</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-medium text-slate-700">Works across supply houses</td>
+              <td class="py-4 px-6 text-center bg-orange-50">✓ Ferguson, Winsupply, Hajoca</td>
+              <td class="py-4 px-6 text-center text-slate-600">N/A</td>
+              <td class="py-4 px-6 text-center text-slate-600">N/A</td>
+              <td class="py-4 px-6 text-center text-slate-600">N/A</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-medium text-slate-700">AI-discoverable (ChatGPT, Perplexity)</td>
+              <td class="py-4 px-6 text-center bg-orange-50">✓ Built in, structured data</td>
+              <td class="py-4 px-6 text-center text-slate-600">✗ Phone-only</td>
+              <td class="py-4 px-6 text-center text-slate-600">Partial</td>
+              <td class="py-4 px-6 text-center text-slate-600">✗ Closed ecosystem</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 font-medium text-slate-700">Setup time</td>
+              <td class="py-4 px-6 text-center bg-orange-50 font-semibold">2 minutes, by voice</td>
+              <td class="py-4 px-6 text-center text-slate-600">1–2 weeks onboarding</td>
+              <td class="py-4 px-6 text-center text-slate-600">Hours in a dashboard</td>
+              <td class="py-4 px-6 text-center text-slate-600">Days to approve</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="bg-stone-50 py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">How it works</div>
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-16 max-w-3xl">
+        An AI that speaks plumber and answers when you can't.
+      </h2>
+
+      <div class="space-y-8">
+        <div class="flex gap-6 items-start pb-8 border-b border-slate-200">
+          <div class="text-4xl font-extrabold text-slate-300 min-w-[60px]">01</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Set up in one 2-minute phone call</h3>
+            <p class="text-slate-600 leading-relaxed max-w-2xl">
+              You call a number. An AI asks you about your business — your service area, your trade focus (repair, install, new construction), your supply-house preferences, your emergency availability. Two minutes later, you have a live website, a working business phone number, and an AI receptionist on call.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 items-start pb-8 border-b border-slate-200">
+          <div class="text-4xl font-extrabold text-slate-300 min-w-[60px]">02</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Answers every emergency call</h3>
+            <p class="text-slate-600 leading-relaxed max-w-2xl">
+              Homeowner calls at 11pm. VoiceClaw picks up instantly with a natural voice that knows plumbing. Asks the right diagnostic questions (burst pipe vs. slow leak vs. no hot water), gets the address, confirms availability, books the job. You see it on your schedule before your first coffee the next morning.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 items-start pb-8 border-b border-slate-200">
+          <div class="text-4xl font-extrabold text-slate-300 min-w-[60px]">03</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Keeps you in the AI lineup</h3>
+            <p class="text-slate-600 leading-relaxed max-w-2xl">
+              Homeowners increasingly ask ChatGPT or Google AI for a plumber. VoiceClaw publishes your real-time availability, service area, and bookability in the structured format AI assistants need. If your competitors aren't there, you get the call.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 items-start">
+          <div class="text-4xl font-extrabold text-slate-300 min-w-[60px]">04</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Hands off when it needs to</h3>
+            <p class="text-slate-600 leading-relaxed max-w-2xl">
+              Commercial job, complex spec, or a homeowner who needs a human? VoiceClaw transfers you directly when the call goes past what an AI should handle. Every call is logged, transcribed, and searchable. You keep the craft; it handles the overhead.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Demo Invitation -->
+  <section class="bg-orange-50 py-20 border-y border-orange-200">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-orange-300 mb-6">
+        <span class="w-2 h-2 rounded-full bg-orange-500 phone-pulse"></span>
+        <span class="text-xs font-semibold text-orange-700 uppercase tracking-wide">Live demo available</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight mb-6">
+        Try calling VoiceClaw yourself.
+      </h2>
+      <p class="text-slate-700 text-lg mb-8 leading-relaxed">
+        Call the demo number and say "my basement is flooding at 2am" or "my water heater just blew." See what an AI that actually understands emergency plumbing sounds like — before you hire one.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <button class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-accent-orange text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all glow-orange">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Try the voice setup now →
+        </button>
+        <button class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-white border-2 border-slate-300 text-slate-900 font-semibold text-base hover:bg-slate-50 transition-all">
+          Book a 15-min call →
+        </button>
+      </div>
+      <p class="text-sm text-slate-600 mt-4">
+        No credit card. No forms. You talk, we build.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Math -->
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-start">
+        <div>
+          <div class="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">The Math</div>
+          <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
+            <span class="accent-orange">$47,000+</span> in jobs you're not losing anymore.
+          </h2>
+          <p class="text-slate-600 text-lg leading-relaxed mb-6">
+            VoiceClaw doesn't just save time. It captures revenue you're currently losing to voicemail, to the next Google result, and to competitors who are findable when AI assistants look.
+          </p>
+          <p class="text-sm text-slate-500">
+            Based on a typical 2–5 person emergency plumbing shop. Your mileage may vary. Most shops see ROI inside the first 60 days.
+          </p>
+        </div>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-2">
+          <div class="divide-y divide-slate-200">
+            <div class="flex items-center justify-between px-5 py-4">
+              <span class="text-slate-700">After-hours emergency calls captured</span>
+              <span class="font-bold">$22,000+</span>
+            </div>
+            <div class="flex items-center justify-between px-5 py-4">
+              <span class="text-slate-700">Water heater / boiler installs won</span>
+              <span class="font-bold">$18,000+</span>
+            </div>
+            <div class="flex items-center justify-between px-5 py-4">
+              <span class="text-slate-700">Angi &amp; aggregator fees eliminated</span>
+              <span class="font-bold">$4,500+</span>
+            </div>
+            <div class="flex items-center justify-between px-5 py-4">
+              <span class="text-slate-700">Evenings not spent on the phone</span>
+              <span class="font-bold">$2,500+</span>
+            </div>
+            <div class="flex items-center justify-between px-5 py-4 bg-orange-50 rounded-lg">
+              <span class="font-bold">Total annual impact</span>
+              <span class="font-extrabold text-orange-600">$47,000+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials placeholder -->
+  <section class="py-24 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">What plumbers say</div>
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight mb-12 max-w-3xl">
+        From plumbers who were tired of losing 2am calls.
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-8 rounded-xl border border-slate-200">
+          <div class="flex items-center gap-1 mb-4 text-orange-500">
+            ★★★★★
+          </div>
+          <p class="text-slate-800 text-lg mb-6 leading-relaxed">
+            "Took the call while I was literally under someone's sink. Booked a $2,200 water heater install for Saturday. I didn't have to touch my phone."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-slate-300"></div>
+            <div>
+              <div class="font-semibold text-sm">Mike R.</div>
+              <div class="text-xs text-slate-500">Emergency Plumbing, Waterloo ON · 6 months on VoiceClaw</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-8 rounded-xl border border-slate-200">
+          <div class="flex items-center gap-1 mb-4 text-orange-500">
+            ★★★★★
+          </div>
+          <p class="text-slate-800 text-lg mb-6 leading-relaxed">
+            "Stopped paying Angi $600/month. The AI screens calls better than any human receptionist I tried — it actually understands what a slab leak is."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-slate-300"></div>
+            <div>
+              <div class="font-semibold text-sm">Dave L.</div>
+              <div class="text-xs text-slate-500">Lewis &amp; Sons Plumbing · 4 months on VoiceClaw</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-center text-xs text-slate-400 mt-8 italic">Testimonial placeholders — real quotes replace these as the pilot cohort comes online.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">Common questions</div>
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-12">
+        Everything you want to know before you call.
+      </h2>
+      <div class="space-y-6">
+        <details class="group border-b border-slate-200 pb-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-lg">
+            Does it really handle emergency plumbing calls?
+            <span class="transition-transform group-open:rotate-45 text-2xl text-slate-400">+</span>
+          </summary>
+          <p class="text-slate-600 mt-4 leading-relaxed">
+            Yes. The AI is trained on plumbing-specific terminology (slab leaks, blown capacitors, burst supply lines, pressure-reducing valves, backflow preventers). It asks diagnostic questions that sound like a real plumbing receptionist would ask. Try calling the demo and saying "my basement is flooding" — you'll see.
+          </p>
+        </details>
+        <details class="group border-b border-slate-200 pb-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-lg">
+            Why is it $79/month when Ruby charges $235+?
+            <span class="transition-transform group-open:rotate-45 text-2xl text-slate-400">+</span>
+          </summary>
+          <p class="text-slate-600 mt-4 leading-relaxed">
+            Ruby uses human operators. Humans cost money per minute. VoiceClaw uses AI, which doesn't. You get 24/7 coverage at a flat rate instead of variable per-call billing. If we're subsidized through a supply-house partnership you already use (Ferguson Pro, etc.), it can be even less.
+          </p>
+        </details>
+        <details class="group border-b border-slate-200 pb-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-lg">
+            Does it lock me to one supply house or paint brand?
+            <span class="transition-transform group-open:rotate-45 text-2xl text-slate-400">+</span>
+          </summary>
+          <p class="text-slate-600 mt-4 leading-relaxed">
+            No. VoiceClaw is supplier-neutral. You buy from Ferguson, Winsupply, Hajoca, Home Depot Pro, or whichever counter you prefer. We don't change what you install or specify. If you later use a Ferguson subsidy benefit, great — but it's not a requirement.
+          </p>
+        </details>
+        <details class="group border-b border-slate-200 pb-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-lg">
+            What happens when someone calls my old number?
+            <span class="transition-transform group-open:rotate-45 text-2xl text-slate-400">+</span>
+          </summary>
+          <p class="text-slate-600 mt-4 leading-relaxed">
+            You can either keep your existing number and forward overflow/after-hours calls to VoiceClaw, or port your number fully. Most plumbers start with forwarding to test, then port once they trust it. We handle the telecom piece; you don't touch a carrier.
+          </p>
+        </details>
+        <details class="group border-b border-slate-200 pb-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-lg">
+            Can it actually book into my existing schedule?
+            <span class="transition-transform group-open:rotate-45 text-2xl text-slate-400">+</span>
+          </summary>
+          <p class="text-slate-600 mt-4 leading-relaxed">
+            Yes. VoiceClaw syncs with Google Calendar, Jobber, Housecall Pro, and most field-service tools. If you run on paper or SMS, it can text you the booking details and confirm with the customer directly until you catch up.
+          </p>
+        </details>
+        <details class="group border-b border-slate-200 pb-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-lg">
+            How is the 2-minute setup real? Other tools take weeks.
+            <span class="transition-transform group-open:rotate-45 text-2xl text-slate-400">+</span>
+          </summary>
+          <p class="text-slate-600 mt-4 leading-relaxed">
+            Other tools make you configure a dashboard. VoiceClaw asks you about your business in a phone conversation and configures itself from what you say. No forms, no logins, no dashboard to learn. If you can describe your plumbing business to a new customer, you can set VoiceClaw up.
+          </p>
+        </details>
+        <details class="group border-b border-slate-200 pb-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-lg">
+            Can I cancel?
+            <span class="transition-transform group-open:rotate-45 text-2xl text-slate-400">+</span>
+          </summary>
+          <p class="text-slate-600 mt-4 leading-relaxed">
+            Yes. Month-to-month, cancel anytime. Your phone number ports back out. We keep your logs and transcripts accessible for 90 days after cancellation.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA (Dark) -->
+  <section class="bg-slate-950 text-white py-24">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
+        Stop losing <span class="accent-orange">$2,000 water heater jobs</span> to whoever picks up first.
+      </h2>
+      <p class="text-slate-400 text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
+        Flat-rate pricing. 2-minute setup by voice. No dashboard to learn. Built for plumbers who'd rather be fixing pipes than chasing missed calls.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <button class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-accent-orange text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all">
+          Try the voice setup now →
+        </button>
+        <button class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg bg-transparent border-2 border-slate-600 text-white font-semibold text-base hover:bg-slate-900 transition-all">
+          Book a 15-min call →
+        </button>
+      </div>
+      <p class="text-sm text-slate-500 mt-6">
+        2 minutes. No credit card. You talk, we build.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 text-slate-500 py-8 border-t border-slate-900">
+    <div class="max-w-6xl mx-auto px-6 text-center text-xs">
+      VoiceClaw — AI receptionist for emergency plumbers. Built for the 2am call.
+    </div>
+  </footer>
+
+</body>
+</html>
