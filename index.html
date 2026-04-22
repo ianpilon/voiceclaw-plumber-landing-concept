@@ -83,12 +83,21 @@
       </div>
       <div class="md:col-span-2">
         <div class="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-slate-200">
-          <img
-            src="hero-plumber-missed-call.jpg"
-            alt="Plumber lying under a kitchen sink fixing pipes while his phone rings on the floor with a customer call he can't answer"
-            class="w-full h-auto"
-            loading="eager"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcset="hero-500.webp 500w, hero-1000.webp 1000w, hero-1500.webp 1500w"
+              sizes="(max-width: 768px) 100vw, 40vw"
+            />
+            <img
+              src="hero-plumber-missed-call.jpg"
+              alt="Plumber lying under a kitchen sink fixing pipes while his phone rings on the floor with a customer call he can't answer"
+              class="w-full h-auto"
+              loading="eager"
+              width="1000"
+              height="747"
+            />
+          </picture>
         </div>
         <p class="text-center text-xs text-slate-400 mt-3 italic">
           The 2am call your hands can't reach.
